@@ -7,7 +7,7 @@ Paintly is a simple implementation of a painting application using HTML5 Canvas.
 
 * [HTML5 Canvas Painting](http://dev.opera.com/articles/view/html5-canvas-painting/)
 * [Responsive HTML5 Canvas](http://ameijer.nl/2011/08/resizable-html5-canvas/)
-* [Save HTML5 Canvas as Image](http://www.html5canvastutorials.com/advanced/html5-canvas-save-drawing-as-an-image/)/[StackOverflow](http://stackoverflow.com/questions/15063002/saving-the-html-5-canvas-image-on-local-harddrive)
+* [Save HTML5 Canvas as Image](http://www.html5canvastutorials.com/advanced/html5-canvas-save-drawing-as-an-image/) / [StackOverflow](http://stackoverflow.com/questions/15063002/saving-the-html-5-canvas-image-on-local-harddrive)
 
 Project Description
 ---
