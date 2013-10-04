@@ -1,4 +1,4 @@
-Paintly
+[Paintly](http://projekt.gustavlindqvist.se/Paintly/)
 =======
 
 Paintly is a simple implementation of a painting application using HTML5 Canvas.
