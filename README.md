@@ -28,11 +28,11 @@ Heres a list of mandatory features for each grade
 * Audio and/or Video using HTML 5
 * Interactivity using JavaScript
 * Mobile view without the need to zoom. Plus One of the following:
-* CSS3 transitions
-* CSS3 transforms
-* CSS3 @fontfamily fonts with fallback font families.
-* CSS3 gradients
-* CSS3 Text-­‐ Boxshadows
+    * CSS3 transitions
+    * CSS3 transforms
+    * CSS3 @fontfamily fonts with fallback font families.
+    * CSS3 gradients
+    * CSS3 Text-­‐ Boxshadows
 
 #### Grade 4
 * Meet the goals for Grade 3
