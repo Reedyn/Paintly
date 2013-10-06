@@ -26,10 +26,10 @@ window.addEventListener('load', function () {
      // The pencil tool instance.
      tool = new tool_pencil();
 
-      // Attach the mousedown, mousemove and mouseup event listeners.
+      // Attach the mousedown, mousemove, mouseup and mouseout event listeners.
     canvas.addEventListener('mousedown', ev_canvas, false);
     canvas.addEventListener('mousemove', ev_canvas, false);
-    canvas.addEventListener('mouseup',   ev_canvas, false);
+    canvas.addEventListener('mouseup', ev_canvas, false);
     canvas.addEventListener('mouseout', ev_canvas, false);
     //Clear canvas
     function clear_canvas(){
