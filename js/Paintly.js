@@ -2,8 +2,7 @@
 if(window.addEventListener) {
 window.addEventListener('load', function () {
   var canvas, context;
-
-  // Initialization sequence.
+  //Init
   function init () {
     // Find the canvas element.
     canvas = document.getElementById('paint-canvas');
@@ -32,6 +31,16 @@ window.addEventListener('load', function () {
     canvas.addEventListener('mousemove', ev_canvas, false);
     canvas.addEventListener('mouseup',   ev_canvas, false);
     canvas.addEventListener('mouseout', ev_canvas, false);
+    //Clear canvas
+    function clear_canvas(){
+      context.save();
+      // Use the identity matrix while clearing the canvas
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Restore the transform
+      context.restore();
+    }
   }
   function tool_pencil () {
     var tool = this;
