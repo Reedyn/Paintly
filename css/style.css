@@ -15,6 +15,7 @@ article section.paint-toolbox {
 article section.paint-box {
   background: white;
   border-radius: 5px;
+  cursor: url(crayon-cursor.png), auto;
 }
 article footer {
   color: white;
