@@ -4,7 +4,14 @@ if(window.addEventListener) {
 	var canvas, context, pencilColor, pencilWidth;
 	
 	pencilWidth = 10;
-	pencilColor = '#666666';
+	pencilColor = document.getElementById('color-picker').value;
+	
+	//Changing colors
+	var color_picker = document.getElementById('color-picker');
+	color_picker.addEventListener('change', change_color, false);
+	function change_color(){
+		pencilColor = document.getElementById('color-picker').value;
+	}
 	
 	//Initialize
 	function init () {
@@ -44,7 +51,11 @@ if(window.addEventListener) {
 
 			// Restore the transform
 			context.restore();
+			//Get rid of the "line-from-right-bug"
+			context.beginPath();
 		}
+		//Runs to clear canvas onload and to get rid of bug
+		clear_canvas();
 	}
 	function tool_pencil () {
 		var tool = this;
@@ -101,6 +112,8 @@ if(window.addEventListener) {
 			func(ev);
 		}
 	}
+
+
 
 	init();
 	}, false);
