@@ -1,7 +1,10 @@
 // Keep everything in anonymous function, called on window load.
 if(window.addEventListener) {
 	window.addEventListener('load', function () {
-	var canvas, context;
+	var canvas, context, pencilColor, pencilWidth;
+	
+	pencilWidth = 10;
+	pencilColor = '#666666';
 	
 	//Initialize
 	function init () {
@@ -61,6 +64,8 @@ if(window.addEventListener) {
 		this.mousemove = function (ev) {
 			if (tool.started) {
 			context.lineTo(ev._x, ev._y);
+			context.lineWidth = pencilWidth;
+			context.strokeStyle = pencilColor;
 			context.stroke();
 			}
 		};

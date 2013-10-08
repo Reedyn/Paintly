@@ -13,7 +13,27 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/style.css">
-
+		
+		<link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/colorpicker.js"></script>
+		<script>
+			$('#color-picker').ColorPicker({
+				color: '#0000ff',
+				onShow: function (colpkr) {
+					$(colpkr).fadeIn(500);
+					return false;
+				},
+				onHide: function (colpkr) {
+					$(colpkr).fadeOut(500);
+					return false;
+				},
+				onChange: function (hsb, hex, rgb) {
+					$('#color-picker div').css('backgroundColor', '#' + hex);
+				}
+			});
+		</script>
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		
     </head>
@@ -27,7 +47,7 @@
 				<h1>Paintly</h1>
 			</header>
 			<section class="paint-toolbox">
-				Toolbox
+				<div id="color-picker"><div style="background-color: rgb(255, 255, 255);"></div></div>
 			</section>
 			<section class="paint-box">
 				<canvas id="paint-canvas" width="600" height="400">
