@@ -6,7 +6,7 @@ if(window.addEventListener) {
 	pencilWidth = 10;
 	pencilColor = document.getElementById('color-picker').value;
 	
-	if (localStorage.canvas != null) {
+	if (localStorage.canvas != null && document.getElementById('paint-canvas').width == localStorage.width && document.getElementById('paint-canvas').height == localStorage.height) {
 		var canvas = document.getElementById('paint-canvas');
 		var ctx = canvas.getContext('2d');
 		var img = new Image;
