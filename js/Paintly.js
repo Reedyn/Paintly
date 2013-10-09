@@ -32,12 +32,26 @@ if(window.addEventListener) {
 		localStorage.canvas = null;
 	}
 	
+	var downloadButton = document.getElementById('download');
+	downloadButton.addEventListener('mouseup', downloadImage, false);
+	function downloadImage() {
+		if (localStorage.canvas != null) {
+			var dataUrl = localStorage.canvas;
+			window.open(dataUrl, "toDataURL() image", "width=" + localStorage.width + ", height=" + localStorage.height);
+		}
+		else {
+			console.log("Your localStorage is empty.");
+		}
+	}
+	
 	function saveToLocalStorage(canvas) {	 
 		// Get canvas contents as a data URL
 		var data = canvas.toDataURL("image/png");
 		// Save image into localStorage
 		try {
 			localStorage.canvas = data;
+			localStorage.width = canvas.width;
+			localStorage.height = canvas.height;
 			console.log("Storage successful: " + data);
 		}
 		catch (e) {
