@@ -24,6 +24,14 @@ if(window.addEventListener) {
 		pencilColor = document.getElementById('color-picker').value;
 	}
 	
+	var newButton = document.getElementById('new');
+	newButton.addEventListener('mouseup', newCanvas, false);
+	function newCanvas() {
+		var canvas = document.getElementById('paint-canvas');
+		canvas.width = canvas.width;
+		localStorage.canvas = null;
+	}
+	
 	function saveToLocalStorage(canvas) {	 
 		// Get canvas contents as a data URL
 		var data = canvas.toDataURL("image/png");
