@@ -6,11 +6,35 @@ if(window.addEventListener) {
 	pencilWidth = 10;
 	pencilColor = document.getElementById('color-picker').value;
 	
+	if (localStorage.canvas != null) {
+		var canvas = document.getElementById('paint-canvas');
+		var ctx = canvas.getContext('2d');
+		var img = new Image;
+		img.onload = function(){
+		  ctx.drawImage(img,0,0);
+		};
+		img.src = localStorage.canvas;
+		console.log("Load successful");	
+	}
+	
 	//Changing colors
 	var color_picker = document.getElementById('color-picker');
 	color_picker.addEventListener('change', change_color, false);
 	function change_color(){
 		pencilColor = document.getElementById('color-picker').value;
+	}
+	
+	function saveToLocalStorage(canvas) {	 
+		// Get canvas contents as a data URL
+		var data = canvas.toDataURL("image/png");
+		// Save image into localStorage
+		try {
+			localStorage.canvas = data;
+			console.log("Storage successful: " + data);
+		}
+		catch (e) {
+			console.log("Storage failed: " + e);
+		}
 	}
 	
 	//Initialize
@@ -87,12 +111,14 @@ if(window.addEventListener) {
 				tool.mousemove(ev);
 				tool.started = false;
 			}
+			saveToLocalStorage(canvas);
 		};
 		this.mouseout = function (ev) {
 			if (tool.started) {
 			tool.mousemove(ev);
 			tool.started = false;
 			}
+			saveToLocalStorage(canvas);
 		};
 	}
 	
