@@ -91,7 +91,7 @@ article section.paint-toolbox div.color-picker div:hover {
 }
 article section.paint-toolbox input.pencil-size {
   height: 32px;
-  width: 200px;
+  width: 120px;
 }
 article section.paint-box {
 	margin: 10px;

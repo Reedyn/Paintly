@@ -11,7 +11,7 @@ if(window.addEventListener) {
 			canvas.width=1000;
 		}
 		
-		if(window.innerHeight<601+44+44){
+		if(window.innerHeight<601+44){
 			canvas.height=window.innerHeight-44-20;
 		}
 		else if(canvas.height!=600){
@@ -21,28 +21,6 @@ if(window.addEventListener) {
 	
 	pencilWidth = document.getElementById('pencil-size').value;
 	pencilColor = document.getElementById('color-picker').value;
-	
-	// geoLocation
-	if (navigator.geolocation) { 
-
-        navigator.geolocation.getCurrentPosition(function(position) {  
-			var lat = position.coords.latitude;
-			var lng = position.coords.longitude;
-			var latlng = new google.maps.LatLng(lat, lng);
-			var geocoder = new google.maps.Geocoder();
-			geocoder.geocode({'latLng': latlng}, function(results, status) {
-				if (status == google.maps.GeocoderStatus.OK) {
-					if (results[1]) {
-						alert(results[7].formatted_address);
-					}
-				} else {
-					alert("Geocoder failed due to: " + status);
-				}
-			});
-		});
-	} else {
-		alert("Geolocation services are not supported by your browser.");
-	}
 	
 	//Changing colors
 	var color_picker = document.getElementById('color-picker');
@@ -153,6 +131,20 @@ if(window.addEventListener) {
 			};
 			img.src = localStorage.canvas;
 			console.log("Load successful");	
+		}
+		
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(showPosition);
+		} else {
+			x.innerHTML="Geolocation is not supported by this browser.";
+		}
+		function showPosition(position) {
+			$.ajax({ url:'http://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude + ',' + position.coords.longitude + '&sensor=true',
+				success: function(data){
+				alert('Du är i ' + data.results[3].address_components[0].long_name);
+				/*or you could iterate the components for only the city and state*/
+				}
+			});
 		}
 
 		// The pencil tool instance.
