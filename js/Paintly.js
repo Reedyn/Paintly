@@ -6,6 +6,28 @@ if(window.addEventListener) {
 	pencilWidth = 10;
 	pencilColor = document.getElementById('color-picker').value;
 	
+	// geoLocation
+	if (navigator.geolocation) { 
+
+        navigator.geolocation.getCurrentPosition(function(position) {  
+			var lat = position.coords.latitude;
+			var lng = position.coords.longitude;
+			var latlng = new google.maps.LatLng(lat, lng);
+			var geocoder = new google.maps.Geocoder();
+			geocoder.geocode({'latLng': latlng}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					if (results[1]) {
+						alert(results[7].formatted_address);
+					}
+				} else {
+					alert("Geocoder failed due to: " + status);
+				}
+			});
+		});
+	} else {
+		alert("Geolocation services are not supported by your browser.");
+	}
+	
 	if (localStorage.canvas != null && document.getElementById('paint-canvas').width == localStorage.width && document.getElementById('paint-canvas').height == localStorage.height) {
 		var canvas = document.getElementById('paint-canvas');
 		var ctx = canvas.getContext('2d');
