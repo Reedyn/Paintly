@@ -43,15 +43,6 @@ if(window.addEventListener) {
 		alert("Geolocation services are not supported by your browser.");
 	}
 	
-	if (localStorage.canvas != null && document.getElementById('paint-canvas').width == localStorage.width && document.getElementById('paint-canvas').height == localStorage.height) {
-		var img = new Image;
-		img.onload = function(){
-		  context.drawImage(img,0,0);
-		};
-		img.src = localStorage.canvas;
-		console.log("Load successful");	
-	}
-	
 	//Changing colors
 	var color_picker = document.getElementById('color-picker');
 	color_picker.addEventListener('change', change_color, false);
@@ -149,6 +140,16 @@ if(window.addEventListener) {
 		}
 		else if(canvas.height!=600){
 			canvas.height=600;
+		}
+		
+		// load
+		if (localStorage.canvas != null && document.getElementById('paint-canvas').width == localStorage.width && document.getElementById('paint-canvas').height == localStorage.height) {
+			var img = new Image;
+			img.onload = function(){
+			  context.drawImage(img,0,0);
+			};
+			img.src = localStorage.canvas;
+			console.log("Load successful");	
 		}
 
 		// The pencil tool instance.
