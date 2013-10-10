@@ -232,7 +232,7 @@ if(window.addEventListener) {
 		// This is called when you release the mouse button.
 		this.touchend = function (ev) {
 			if (tool.started) {
-				tool.mousemove(ev);
+				tool.touchmove(ev);
 				tool.started = false;
 			}
 			saveToLocalStorage(canvas);
