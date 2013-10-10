@@ -1,8 +1,8 @@
 body {
-  background: #1abc9c;
+  background: #E2E2E2;
 }
 article {
-  max-width: 600px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
 }
@@ -11,6 +11,75 @@ article header h1 {
 }
 article section.paint-toolbox {
   margin-bottom: 5px;
+}
+article section.paint-toolbox input {
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  color: rgba(0, 0, 0, 0);
+  height: 32px;
+  width: 32px;
+  border: none;
+  background: #666;
+  vertical-align: bottom;
+}
+article section.paint-toolbox input.new {
+  background: url("new.png");
+  background-color: #666;
+}
+article section.paint-toolbox input.new:hover {
+  background-color: #000;
+}
+article section.paint-toolbox input.download {
+  background: url("download.png");
+  background-color: #666;
+}
+article section.paint-toolbox input.download:hover {
+  background-color: #000;
+}
+article section.paint-toolbox div.color-picker {
+  background: #000;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+}
+article section.paint-toolbox div.color-picker input#color-picker {
+  -webkit-transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  -o-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  background: none;
+  padding: 0;
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  top: -6px;
+  left: -3px;
+  cursor: pointer;
+}
+article section.paint-toolbox div.color-picker input#color-picker:hover {
+  opacity: 0;
+}
+article section.paint-toolbox div.color-picker div {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  background: url("color.png");
+  z-index: 1000;
+  pointer-events: none;
+}
+article section.paint-toolbox div.color-picker div:hover {
+  background-color: #000;
+}
+article section.paint-toolbox input.pencil-size {
+  height: 32px;
+  width: 200px;
 }
 article section.paint-box {
   background: white;
