@@ -11,7 +11,7 @@ if(window.addEventListener) {
 			canvas.width=600;
 		}
 		if(window.innerHeight<401+44+44){
-			canvas.height=window.innerWidth-44-44;
+			canvas.height=window.innerHeight-44-44;
 		}
 		else{
 			canvas.height=400;
