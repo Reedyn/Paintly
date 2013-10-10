@@ -5,13 +5,13 @@ if(window.addEventListener) {
 	//Responsivity
 	window.onresize=function(){
 		if(window.innerWidth<1001){
-			canvas.width=window.innerWidth;
+			canvas.width=window.innerWidth-20;
 		}
 		else if(canvas.width!=1000){
 			canvas.width=1000;
 		}
 		if(window.innerHeight<601+44+44){
-			canvas.height=window.innerHeight-44-44;
+			canvas.height=window.innerHeight-44-44-20;
 		}
 		else if(canvas.height!=600){
 			canvas.height=600;
@@ -139,13 +139,13 @@ if(window.addEventListener) {
 		}
 
 		if(window.innerWidth<1001){
-			canvas.width=window.innerWidth;
+			canvas.width=window.innerWidth-20;
 		}
 		else if(canvas.width!=1000){
 			canvas.width=1000;
 		}
 		if(window.innerHeight<601+44+44){
-			canvas.height=window.innerHeight-44-44;
+			canvas.height=window.innerHeight-44-44-20;
 		}
 		else if(canvas.height!=600){
 			canvas.height=600;

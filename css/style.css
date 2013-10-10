@@ -5,6 +5,7 @@ article {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+  padding: 10px;
 }
 article header h1 {
   color: white;
