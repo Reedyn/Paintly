@@ -4,17 +4,17 @@ if(window.addEventListener) {
 	var canvas, context, pencilColor, pencilWidth;
 	//Responsivity
 	window.onresize=function(){
-		if(window.innerWidth<601){
+		if(window.innerWidth<1001){
 			canvas.width=window.innerWidth;
 		}
-		else{
-			canvas.width=600;
+		else if(canvas.width!=1000){
+			canvas.width=1000;
 		}
-		if(window.innerHeight<401+44+44){
+		if(window.innerHeight<601+44+44){
 			canvas.height=window.innerHeight-44-44;
 		}
-		else{
-			canvas.height=400;
+		else if(canvas.height!=600){
+			canvas.height=600;
 		}
 	}
 	
