@@ -2,8 +2,14 @@
 if(window.addEventListener) {
 	window.addEventListener('load', function () {
 	var canvas, context, pencilColor, pencilWidth;
+	//Responsivity
+	window.onresize=function(){
+		if(window.innerWidth<601){
+			canvas.width=window.innerWidth;
+		}
+	}
 	
-	pencilWidth = 2;
+	pencilWidth = document.getElementById('pencil-size').value;
 	pencilColor = document.getElementById('color-picker').value;
 	
 	// geoLocation
@@ -29,11 +35,9 @@ if(window.addEventListener) {
 	}
 	
 	if (localStorage.canvas != null && document.getElementById('paint-canvas').width == localStorage.width && document.getElementById('paint-canvas').height == localStorage.height) {
-		var canvas = document.getElementById('paint-canvas');
-		var ctx = canvas.getContext('2d');
 		var img = new Image;
 		img.onload = function(){
-		  ctx.drawImage(img,0,0);
+		  context.drawImage(img,0,0);
 		};
 		img.src = localStorage.canvas;
 		console.log("Load successful");	
@@ -117,6 +121,7 @@ if(window.addEventListener) {
 		canvas.addEventListener('mousemove', ev_canvas, false);
 		canvas.addEventListener('mouseup', ev_canvas, false);
 		canvas.addEventListener('mouseout', ev_canvas, false);
+		canvas.addEventListener('mouseover', ev_canvas, false);
 		//Clear canvas
 		function clear_canvas(){
 			context.save();
@@ -135,7 +140,10 @@ if(window.addEventListener) {
 	function tool_pencil () {
 		var tool = this;
 		this.started = false;
-
+		window.addEventListener('mouseup', cancel_draw, false);
+		function cancel_draw(){
+			tool.started=false;
+		}
 		// This is called when you start holding down the mouse button.
 		// This starts the pencil drawing.
 		this.mousedown = function (ev) {
@@ -167,10 +175,14 @@ if(window.addEventListener) {
 		this.mouseout = function (ev) {
 			if (tool.started) {
 			tool.mousemove(ev);
-			tool.started = false;
 			}
 			saveToLocalStorage(canvas);
 		};
+		this.mouseover = function (ev){
+				if(tool.started){
+					context.beginPath();
+				}
+		}
 	}
 	
 	// The mousemove event handler.
