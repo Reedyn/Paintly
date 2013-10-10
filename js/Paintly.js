@@ -138,6 +138,19 @@ if(window.addEventListener) {
 			return;
 		}
 
+		if(window.innerWidth<1001){
+			canvas.width=window.innerWidth;
+		}
+		else if(canvas.width!=1000){
+			canvas.width=1000;
+		}
+		if(window.innerHeight<601+44+44){
+			canvas.height=window.innerHeight-44-44;
+		}
+		else if(canvas.height!=600){
+			canvas.height=600;
+		}
+
 		// The pencil tool instance.
 		tool = new tool_pencil();
 
