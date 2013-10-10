@@ -3,7 +3,7 @@ if(window.addEventListener) {
 	window.addEventListener('load', function () {
 	var canvas, context, pencilColor, pencilWidth;
 	
-	pencilWidth = 10;
+	pencilWidth = 2;
 	pencilColor = document.getElementById('color-picker').value;
 	
 	// geoLocation
@@ -44,6 +44,13 @@ if(window.addEventListener) {
 	color_picker.addEventListener('change', change_color, false);
 	function change_color(){
 		pencilColor = document.getElementById('color-picker').value;
+	}
+	
+	//Changing pencil size
+	var color_picker = document.getElementById('pencil-size');
+	color_picker.addEventListener('change', change_size, false);
+	function change_size(){
+		pencilWidth = document.getElementById('pencil-size').value;
 	}
 	
 	var newButton = document.getElementById('new');
