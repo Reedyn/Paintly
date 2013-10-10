@@ -7,6 +7,15 @@ if(window.addEventListener) {
 		if(window.innerWidth<601){
 			canvas.width=window.innerWidth;
 		}
+		else{
+			canvas.width=600;
+		}
+		if(window.innerHeight<401+44+44){
+			canvas.height=window.innerWidth-44-44;
+		}
+		else{
+			canvas.height=400;
+		}
 	}
 	
 	pencilWidth = document.getElementById('pencil-size').value;
@@ -91,6 +100,22 @@ if(window.addEventListener) {
 			console.log("Storage failed: " + e);
 		}
 	}
+	//Touch handler
+	function touchHandler(event)
+	{
+    var touches = event.changedTouches,
+        first = touches[0],
+        type = "";
+         switch(event.type)
+    {
+        case "touchstart": type = "mousedown"; break;
+        case "touchmove":  type="mousemove"; break;        
+        case "touchend":   type="mouseup"; break;
+        default: return;
+    }
+    event.preventDefault();
+	}
+
 	
 	//Initialize
 	function init () {
@@ -117,11 +142,17 @@ if(window.addEventListener) {
 		tool = new tool_pencil();
 
 		// Attach the mousedown, mousemove, mouseup and mouseout event listeners.
+		// Attach touch-event listeners
 		canvas.addEventListener('mousedown', ev_canvas, false);
 		canvas.addEventListener('mousemove', ev_canvas, false);
 		canvas.addEventListener('mouseup', ev_canvas, false);
 		canvas.addEventListener('mouseout', ev_canvas, false);
 		canvas.addEventListener('mouseover', ev_canvas, false);
+
+		canvas.addEventListener("touchstart", touchHandler, true);
+    canvas.addEventListener("touchmove", touchHandler, true);
+    canvas.addEventListener("touchend", touchHandler, true);
+    canvas.addEventListener("touchcancel", touchHandler, true);
 		//Clear canvas
 		function clear_canvas(){
 			context.save();
