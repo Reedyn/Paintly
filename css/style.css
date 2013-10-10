@@ -1,5 +1,5 @@
 body {
-  background: #E2E2E2;
+  background: #505050;
 }
 article {
   max-width: 1000px;
@@ -10,6 +10,7 @@ article header h1 {
   color: white;
 }
 article section.paint-toolbox {
+	margin-left: -4px;
   margin-bottom: 5px;
 }
 article section.paint-toolbox input {
@@ -26,14 +27,14 @@ article section.paint-toolbox input {
 }
 article section.paint-toolbox input.new {
   background: url("new.png");
-  background-color: #666;
+  background-color: #FFF;
 }
 article section.paint-toolbox input.new:hover {
   background-color: #000;
 }
 article section.paint-toolbox input.download {
   background: url("download.png");
-  background-color: #666;
+  background-color: #FFF;
 }
 article section.paint-toolbox input.download:hover {
   background-color: #000;
@@ -83,8 +84,8 @@ article section.paint-toolbox input.pencil-size {
 }
 article section.paint-box {
   background: white;
-  border-radius: 5px;
   cursor: url(crayon-cursor.png), auto;
+  line-height: 0;
 }
 article footer {
   color: white;
