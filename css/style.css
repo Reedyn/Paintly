@@ -2,17 +2,17 @@ body {
   background: #505050;
 }
 article {
-  max-width: 1000px;
+  max-width: 1020px;
   width: 100%;
   margin: 0 auto;
-  padding: 10px;
 }
 article header h1 {
   color: white;
 }
 article section.paint-toolbox {
+	padding: 10px 10px 0 10px;
 	margin-left: -4px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 article section.paint-toolbox input {
   -webkit-transition: all 200ms ease-in-out;
@@ -84,6 +84,7 @@ article section.paint-toolbox input.pencil-size {
   width: 200px;
 }
 article section.paint-box {
+	margin: 10px;
   background: white;
   cursor: url(crayon-cursor.png), auto;
   line-height: 0;
