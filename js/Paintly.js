@@ -158,10 +158,9 @@ if(window.addEventListener) {
 		canvas.addEventListener('mouseout', ev_canvas, false);
 		canvas.addEventListener('mouseover', ev_canvas, false);
 
-		canvas.addEventListener("touchstart", touchHandler, true);
-    canvas.addEventListener("touchmove", touchHandler, true);
-    canvas.addEventListener("touchend", touchHandler, true);
-    canvas.addEventListener("touchcancel", touchHandler, true);
+		canvas.addEventListener("touchstart", ev_canvas, true);
+    canvas.addEventListener("touchmove", ev_canvas, true);
+    canvas.addEventListener("touchend", ev_canvas, true);
 		//Clear canvas
 		function clear_canvas(){
 			context.save();
@@ -206,6 +205,32 @@ if(window.addEventListener) {
 
 		// This is called when you release the mouse button.
 		this.mouseup = function (ev) {
+			if (tool.started) {
+				tool.mousemove(ev);
+				tool.started = false;
+			}
+			saveToLocalStorage(canvas);
+		};
+		this.touchstart = function (ev) {
+			context.beginPath();
+			context.moveTo(ev._x, ev._y);
+			tool.started = true;
+		};
+
+		// This function is called every time you move the mouse. Obviously, it only 
+		// draws if the tool.started state is set to true (when you are holding down 
+		// the mouse button).
+		this.touchmove = function (ev) {
+			if (tool.started) {
+			context.lineTo(ev._x, ev._y);
+			context.lineWidth = pencilWidth;
+			context.strokeStyle = pencilColor;
+			context.stroke();
+			}
+		};
+
+		// This is called when you release the mouse button.
+		this.touchend = function (ev) {
 			if (tool.started) {
 				tool.mousemove(ev);
 				tool.started = false;
