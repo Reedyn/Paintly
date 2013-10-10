@@ -14,6 +14,10 @@ article section.paint-toolbox {
 	margin-left: -4px;
   margin-bottom: 10px;
 }
+
+textarea:focus, input:focus{
+    outline: 0;
+}
 article section.paint-toolbox input {
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
