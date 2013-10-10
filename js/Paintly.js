@@ -63,6 +63,8 @@ if(window.addEventListener) {
 		var canvas = document.getElementById('paint-canvas');
 		canvas.width = canvas.width;
 		localStorage.canvas = null;
+		var audio = document.getElementById('player');
+		audio.play();
 	}
 	
 	var downloadButton = document.getElementById('download');
