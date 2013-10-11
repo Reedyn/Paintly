@@ -30,8 +30,8 @@ if(window.addEventListener) {
 	}
 	
 	//Changing pencil size
-	var color_picker = document.getElementById('pencil-size');
-	color_picker.addEventListener('change', change_size, false);
+	var size_picker = document.getElementById('pencil-size');
+	size_picker.addEventListener('change', change_size, false);
 	function change_size(){
 		pencilWidth = document.getElementById('pencil-size').value;
 	}
